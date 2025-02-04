@@ -59,7 +59,7 @@ void FindMaxLengthSupplier(std::vector<std::shared_ptr<Supplier>>& vector,
 	}
 }
 
-void FindMaxLengthSupply(std::vector<std::shared_ptr<Supply>>& vector,
+void FindMaxLengthSupply(std::vector<std::shared_ptr<Employee>>& vector,
 	std::vector<size_t>& fields) {
 
 	for (int i = 0; i < vector.size(); i++) {
@@ -137,7 +137,7 @@ void PrintDynamicTableSupplier(std::vector<std::shared_ptr<Supplier>>& vector,
 	}
 }
 
-void PrintDynamicTableSupply(std::vector<std::shared_ptr<Supply>>& vector,
+void PrintDynamicTableSupply(std::vector<std::shared_ptr<Employee>>& vector,
 	std::vector<size_t>& fields, std::vector<std::string>& namings) {
 
 	PrintTopTable(fields, namings);

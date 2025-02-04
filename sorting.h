@@ -211,8 +211,8 @@ void SortPartsByVendorCode(std::vector<std::shared_ptr<Parts>>& parts) {
 
 /********************************************************************************************/
 
-// Поиск, фильтр, сортировка структуры Supply
-void SearchSupplyByDate(std::vector<std::shared_ptr<Supply>>& supply) {
+// Поиск, фильтр, сортировка структуры Employee
+void SearchSupplyByDate(std::vector<std::shared_ptr<Employee>>& supply) {
 	
 	FindMaxLengthSupply(supply, SUPPLY::fields);
 	std::cout << "Введите дату, по которой вы хотите найти поставку\n";
@@ -235,7 +235,7 @@ void SearchSupplyByDate(std::vector<std::shared_ptr<Supply>>& supply) {
 	ClearConsoleEnter();
 }
 
-void SearchSupplyByQuantity(std::vector<std::shared_ptr<Supply>>& supply) {
+void SearchSupplyByQuantity(std::vector<std::shared_ptr<Employee>>& supply) {
 
 	FindMaxLengthSupply(supply, SUPPLY::fields);
 	std::cout << "Введите количество деталей, по которому вы хотите найти поставку\n";
@@ -258,7 +258,7 @@ void SearchSupplyByQuantity(std::vector<std::shared_ptr<Supply>>& supply) {
 	ClearConsoleEnter();
 }
 
-bool CompareDates(std::shared_ptr<Supply>& date1, std::shared_ptr<Supply>& date2) {
+bool CompareDates(std::shared_ptr<Employee>& date1, std::shared_ptr<Employee>& date2) {
 	std::istringstream ss1(date1->date);
 	std::istringstream ss2(date2->date);
 	char dot;
@@ -278,7 +278,7 @@ bool CompareDates(std::shared_ptr<Supply>& date1, std::shared_ptr<Supply>& date2
 	return day1 <= day2;
 }
 
-void FilterSupplyByDate(std::vector<std::shared_ptr<Supply>>& supply) {
+void FilterSupplyByDate(std::vector<std::shared_ptr<Employee>>& supply) {
 	
 	FindMaxLengthSupply(supply, SUPPLY::fields);
 	std::string min_date{ "" }, max_date{ "" };
@@ -288,8 +288,8 @@ void FilterSupplyByDate(std::vector<std::shared_ptr<Supply>>& supply) {
 	max_date = DateInput();
 	std::cout << std::endl << std::endl;
 	bool found{ false };
-	std::shared_ptr<Supply> date1 = std::make_shared<Supply>();
-	std::shared_ptr<Supply> date2 = std::make_shared<Supply>();
+	std::shared_ptr<Employee> date1 = std::make_shared<Employee>();
+	std::shared_ptr<Employee> date2 = std::make_shared<Employee>();
 	date1->date = min_date;
 	date2->date = max_date;
 
@@ -307,7 +307,7 @@ void FilterSupplyByDate(std::vector<std::shared_ptr<Supply>>& supply) {
 	ClearConsoleEnter();
 }
 
-void FilterSupplyByQuantity(std::vector<std::shared_ptr<Supply>>& supply) {
+void FilterSupplyByQuantity(std::vector<std::shared_ptr<Employee>>& supply) {
 
 	FindMaxLengthSupply(supply, SUPPLY::fields);
 	double min_quantity{ 0.0 }, max_quantity{ 0.0 };
@@ -333,14 +333,14 @@ void FilterSupplyByQuantity(std::vector<std::shared_ptr<Supply>>& supply) {
 	ClearConsoleEnter();
 }
 
-void SortSupplyByDate(std::vector<std::shared_ptr<Supply>>& supply) {
+void SortSupplyByDate(std::vector<std::shared_ptr<Employee>>& supply) {
 
 	std::sort(supply.begin(), supply.end(), CompareDates);
 }
 
-void SortSupplyByQuantity(std::vector<std::shared_ptr<Supply>>& supply) {
+void SortSupplyByQuantity(std::vector<std::shared_ptr<Employee>>& supply) {
 	std::sort(supply.begin(), supply.end(), 
-		[](const std::shared_ptr<Supply>& a, const std::shared_ptr<Supply>& b) {
+		[](const std::shared_ptr<Employee>& a, const std::shared_ptr<Employee>& b) {
 			return a->quantity < b->quantity;
 		});
 }
@@ -387,7 +387,7 @@ void FindFrequentParts() {
 	* которые встречаются чаще всего, а после выводим
 	* их на экран.
 	*/
-	std::vector<std::shared_ptr<Supply>> vector;
+	std::vector<std::shared_ptr<Employee>> vector;
 	ReadSupplyFromFile(vector, SUPPLY_FILE);
 
 	std::vector<int> part_id, top3;

@@ -25,7 +25,7 @@ void user_functions_sort() {
 		"6.Сортировать по количеству\n"
 		"0.Назад\n";
 
-	std::vector<std::shared_ptr<Supply>> supply;
+	std::vector<std::shared_ptr<Employee>> supply;
 	std::vector<std::shared_ptr<Supplier>> supplier;
 	std::vector<std::shared_ptr<Parts>> parts;
 	ReadSuppliersFromFile(supplier, SUPPLIERS_FILE);
@@ -109,7 +109,7 @@ void user_functions_find_filter() {
 		"12.Вывести список из 3 самых востребованных деталей\n"
 		"0.Назад\n";
 
-	std::vector<std::shared_ptr<Supply>> supply;
+	std::vector<std::shared_ptr<Employee>> supply;
 	std::vector<std::shared_ptr<Supplier>> supplier;
 	std::vector<std::shared_ptr<Parts>> parts;
 	ReadSuppliersFromFile(supplier, SUPPLIERS_FILE);
@@ -205,7 +205,7 @@ void admin_functions() {
 		"15.Удалить Поставку\n"
 		"0.Назад\n";
 
-	std::vector<std::shared_ptr<Supply>> supply;
+	std::vector<std::shared_ptr<Employee>> supply;
 	std::vector<std::shared_ptr<Supplier>> supplier;
 	std::vector<std::shared_ptr<Parts>> parts;
 	ReadSuppliersFromFile(supplier, SUPPLIERS_FILE);

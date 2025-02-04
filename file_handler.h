@@ -52,7 +52,7 @@ void ReadSuppliersFromFile(std::vector<std::shared_ptr<Supplier>>& vector,
 	input_file.close();
 }
 
-void ReadSupplyFromFile(std::vector<std::shared_ptr<Supply>>& vector,
+void ReadSupplyFromFile(std::vector<std::shared_ptr<Employee>>& vector,
 	std::string filename) {
 
 	std::ifstream input_file(filename, std::ios::in);
@@ -75,7 +75,7 @@ void ReadSupplyFromFile(std::vector<std::shared_ptr<Supply>>& vector,
 	for (int i = 0; i < number_of_lines; ++i) {
 		getline(input_file, line);
 		std::stringstream ss(line);
-		std::shared_ptr<Supply> supply = std::make_shared<Supply>();
+		std::shared_ptr<Employee> supply = std::make_shared<Employee>();
 		ss >> supply->supplier_id >> supply->part_id >>
 			supply->quantity >> supply->date;
 
@@ -259,7 +259,7 @@ void AddSupplyToFile(std::string filename) {
 
 	/*****************************Cохранить данные файла в векторе, после их перезаписать************/
 
-	Supply supply;
+	Employee supply;
 	supply.supplier_id = supplier_id_input;
 	supply.part_id = part_id_input;
 
@@ -526,7 +526,7 @@ void EditSupply(const std::string& filename) {
 	std::stringstream ss(supply_lines[line_to_edit]);
 	ss >> supplier_id >> part_id;
 	// Запрашиваем у пользователя новые данные
-	Supply supply;
+	Employee supply;
 
 	std::cout << "Введите количество деталей:";
 	supply.quantity = IntInput();
@@ -618,7 +618,7 @@ void DeleteSupplierFromFile(const std::string& filename) {
 }
 
 void DeleteSupplyFromFile(const std::string& filename) {
-	std::vector<std::shared_ptr<Supply>> vector;
+	std::vector<std::shared_ptr<Employee>> vector;
 	ReadSupplyFromFile(vector, filename);
 	PrintSupplyFromVector(vector, false);
 	int line_to_delete{ 0 };
@@ -650,7 +650,7 @@ void ViewSupplierFromFile(const std::string filename, bool flag) {
 }
 
 void ViewSupplyFromFile(const std::string filename, bool flag) {
-	std::vector<std::shared_ptr<Supply>> vector;
+	std::vector<std::shared_ptr<Employee>> vector;
 	ReadSupplyFromFile(vector, filename);
 	PrintSupplyFromVector(vector, flag);
 }

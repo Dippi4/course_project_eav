@@ -18,7 +18,7 @@ void PrintSuppliersFromVector(std::vector<std::shared_ptr<Supplier>>& vector, bo
 		ClearConsoleEnter();
 }
 
-void PrintSupplyFromVector(std::vector<std::shared_ptr<Supply>>& vector, bool flag) {
+void PrintSupplyFromVector(std::vector<std::shared_ptr<Employee>>& vector, bool flag) {
 	resetValuesNamespace();
 	FindMaxLengthSupply(vector, SUPPLY::fields);
 	PrintDynamicTableSupply(vector, SUPPLY::fields, SUPPLY::namings);
@@ -42,7 +42,7 @@ void PrintPartsFromVector(std::vector<std::shared_ptr<Parts>>& vector, bool flag
 		ClearConsoleEnter();
 }
 
-void PrintOneSupply(std::shared_ptr<Supply>& supply, 
+void PrintOneSupply(std::shared_ptr<Employee>& supply, 
 	std::vector<size_t>& fields, std::vector<std::string>&namings, bool flag) {
 
 	if (flag) {

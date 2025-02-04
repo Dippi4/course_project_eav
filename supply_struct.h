@@ -15,7 +15,7 @@ struct Parts { // детали
 	std::string note{ "" }; // примечание
 }; // 5
 
-struct Supply { // поставки
+struct Employee { // поставки
 	int supplier_id{ 0 }; // id поставщика
 	int part_id{ 0 }; // id детали
 	int quantity{ 0 }; // количество деталей
